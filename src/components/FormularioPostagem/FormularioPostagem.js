@@ -1,25 +1,28 @@
 import { FormContainer, Form, Input, StyledLabel } from "./FormularioPostagem.styled";
 
-export const FormularioCadastro = () => {
+export const FormularioCadastro = (props, dadosForm) => {
+
   return (
+
     <FormContainer>
       <h1>Insira sua postagem abaixo: </h1>
 
-      <Form>
+      <Form onSubmit={props.atualizar}>
         <StyledLabel htmlFor="titulo">
           Titulo:
-          <Input id="titulo" />
+          <Input onChange={props.postaTitulo} value={props.titulo} id="titulo" />
         </StyledLabel>
 
         <StyledLabel htmlFor="foto">
           Imagem:
-          <Input id="foto" />
+          <Input onChange={props.mudaImagem} value={props.imagem} id="foto" />
         </StyledLabel>
 
         <StyledLabel htmlFor="descricao">
           Descrição:
-          <Input id="descricao" />
+          <Input onChange={props.postaDescricao} value={props.descricao} id="descricao" />
         </StyledLabel>
+        <button>Postar dados</button>
       </Form>
     </FormContainer>
   );
